@@ -1,0 +1,13 @@
+header{
+    display: none;
+}
+
+a{
+    text-align: center;
+    display: block;
+    margin-top: 14px;
+}
+
+a:hover{
+    text-decoration: none;
+}
