@@ -1,5 +1,5 @@
 header{
-    display: none;
+    display: none !important;
 }
 
 a{

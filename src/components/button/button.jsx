@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 
-const ButtonLocal = ({ fullWidth, size, disabled, buttonStyle, type,  title, StartIcon, EndIcon, onClick, onMouseOver, variant }) => {
+const ButtonLocal = ({ color, fullWidth, size, disabled, buttonStyle, type,  title, StartIcon, EndIcon, onClick, onMouseOver, variant }) => {
     return  <Button 
                 sx={{
                     ...buttonStyle
@@ -12,6 +12,7 @@ const ButtonLocal = ({ fullWidth, size, disabled, buttonStyle, type,  title, Sta
                 onClick={onClick}
                 onMouseOver={onMouseOver}
                 size={size}
+                color={color}
                 fullWidth={fullWidth}
                 startIcon={StartIcon ? <StartIcon/> : null}
                 endIcon={EndIcon ? <EndIcon/> : null}
@@ -28,6 +29,7 @@ ButtonLocal.propTypes = {
     disabled: PropTypes.bool,
     size: PropTypes.string,
     fullWidth: PropTypes.bool,
+    color: PropTypes.string
 }
 
 ButtonLocal.defaultProps = {
@@ -39,7 +41,8 @@ ButtonLocal.defaultProps = {
     variant: "contained",
     disabled: false,
     size: "medium",
-    fullWidth: false
+    fullWidth: false,
+    color: 'primary'
 }
 
 export default ButtonLocal;

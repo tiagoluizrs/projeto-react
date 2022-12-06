@@ -4,9 +4,11 @@ import Text from '../text/text';
 import Button from '../button/button';
 import Chip from '@mui/material/Chip';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const {
+        id,
         image,
         name,
         price,
@@ -61,28 +63,44 @@ const Product = ({ product }) => {
              </div>
              
              <Text
-                variant='h4'
+                variant='h5'
                 component='p'
                 text={name}
-                boxStyle={{
-                    margin: '20px 0 0 0',
-                }}
              />
              <Text
                 variant='p'
                 component='p'
-                text={description}
+                text={description.substr(0, 255)}
                 boxStyle={{
                     margin: '20px 0',
                 }}
              />
-             <Button
-                fullWidth={true}
-                title={'Comprar'}
-                buttonStyle={{
-                    borderRadius: '0'
-                }}
-             />
+             <Link to={`/cart`}>
+                <Button
+                    title={'Comprar'}
+                    buttonStyle={{
+                        borderRadius: '0',
+                        width: '50%',
+                        margin: '0',
+                        padding: '0',
+                        float: 'left',
+                        border: '1px solid #1976d2'
+                    }}
+                />
+             </Link>
+             <Link to={`/product/${id}`}>
+                <Button
+                    variant="outlined"
+                    title={'VER'}
+                    buttonStyle={{
+                        borderRadius: '0',
+                        width: '50%',
+                        margin: '0',
+                        padding: '0',
+                        float: 'left'
+                    }}
+                />
+             </Link>
             </Box>
 }
 

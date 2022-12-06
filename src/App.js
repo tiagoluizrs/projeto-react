@@ -1,14 +1,15 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense } from 'react';
 
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 import './App.css';
 import Loading from './components/loading/loading';
+
+import AppBar from './components/app-bar/app-bar';
 
 const Login = lazy(() => import('./pages/auth/login/login'))
 const Register = lazy(() => import('./pages/auth/register/register'));
@@ -21,22 +22,7 @@ const Product = lazy(() => import('./pages/product/product'));
 function App() {
   return (
     <Router>
-      <header>
-        <ul>
-          <li>
-            <Link to="/">Catálogo</Link>
-          </li>
-          <li>
-            <Link to="/cart">Carrinho</Link>
-          </li>
-          <li>
-            <Link to="/product/1">Produto</Link>
-          </li>
-          <li>
-            <Link to="/checkout">Checkout</Link>
-          </li>
-        </ul>
-      </header>
+      <AppBar/>
       <Suspense fallback={<Loading/>}>
         <Routes>
           <Route path="/" element={<Catalog />}/>
