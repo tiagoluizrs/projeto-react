@@ -5,12 +5,13 @@ import NotFound from '../not-found/not-found';
 import ProductItem from "../../components/product-item/product-item";
 
 const Product = () => {
+
     const params = useParams();
     const [ product, setProduct] = useState(null);
 
     const loadData = async () => {
-        const id = 1;
-        // const id = params.id; //Correto
+        // const id = 1;
+        const id = params.id; //Correto
         const response = await get(`https://demo8462142.mockable.io/produto/${id}`);
         setProduct(response.data)
     }

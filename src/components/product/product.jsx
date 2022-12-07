@@ -5,8 +5,12 @@ import Button from '../button/button';
 import Chip from '@mui/material/Chip';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { addToCart, buy } from '../../services/buy';
 
 const Product = ({ product }) => {
+    const navigate = useNavigate();
+
     const {
         id,
         image,
@@ -75,19 +79,18 @@ const Product = ({ product }) => {
                     margin: '20px 0',
                 }}
              />
-             <Link to={`/cart`}>
-                <Button
-                    title={'Comprar'}
-                    buttonStyle={{
-                        borderRadius: '0',
-                        width: '50%',
-                        margin: '0',
-                        padding: '0',
-                        float: 'left',
-                        border: '1px solid #1976d2'
-                    }}
-                />
-             </Link>
+            <Button
+                title={'Comprar'}
+                buttonStyle={{
+                    borderRadius: '0',
+                    width: '50%',
+                    margin: '0',
+                    padding: '0',
+                    float: 'left',
+                    border: '1px solid #1976d2'
+                }}
+                onClick={ () => buy(product, navigate)}
+            />
              <Link to={`/product/${id}`}>
                 <Button
                     variant="outlined"
@@ -101,6 +104,19 @@ const Product = ({ product }) => {
                     }}
                 />
              </Link>
+             
+            <Button
+                title={'Adicionar ao carrinho'}
+                buttonStyle={{
+                    borderRadius: '0',
+                    width: '100%',
+                    margin: '5px 0 0',
+                    padding: '0',
+                    float: 'left',
+                    border: '1px solid #1976d2'
+                }}
+                onClick={ () => addToCart(product)}
+            />
             </Box>
 }
 

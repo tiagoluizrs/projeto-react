@@ -8,8 +8,12 @@ import Select from "../select/select";
 import { useState } from 'react';
 import Button from '../button/button';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { buy, addToCart } from '../../services/buy';
 
 const ProductItem = ({ product }) => {
+    const navigate = useNavigate();
+
     const [value, setValue] = useState(4);
     const [size, setSize] = useState([]);
     const [color, setColor] = useState([]);
@@ -131,22 +135,20 @@ const ProductItem = ({ product }) => {
                                         margin: '0',
                                         float: 'left',
                                     }}
+                                    onClick={() => buy(product, navigate)}
                                 />
                             </Link>
-                            <Link to={`/cart`} style={{
-                                width: '50%'
-                            }}>
-                                <Button
-                                    fullWidth={true}
-                                    variant="outlined"
-                                    title={'Adicionar'}
-                                    buttonStyle={{
-                                        borderRadius: '0',
-                                        margin: '0',
-                                        float: 'left'
-                                    }}
-                                />
-                            </Link>
+                            <Button
+                                fullWidth={true}
+                                variant="outlined"
+                                title={'Adicionar'}
+                                buttonStyle={{
+                                    borderRadius: '0',
+                                    margin: '0',
+                                    float: 'left'
+                                }}
+                                onClick={() => addToCart(product)}
+                            />
                         </Stack>
                     </Box>
                 </Grid>

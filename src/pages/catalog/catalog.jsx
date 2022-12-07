@@ -17,11 +17,14 @@ const Catalog = () => {
 
     return <Grid container spacing={2} style={{
         padding: '15px',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        margin: '0 auto',
+        maxWidth: '1190px',
+        width:' 100%'
     }}>
         { catalog.length > 0 ? 
             catalog.map(product => {
-                return <Grid item xs={12} sm={6} md={3} lg={2}>
+                return <Grid item xs={12} sm={6} md={3}>
                           <Product product={product}/>
                        </Grid>
             })
