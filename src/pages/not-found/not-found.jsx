@@ -19,7 +19,7 @@ NotFound.defaultProps = {
     title: "Oops! Página não encontrada!",
     text: "Sentimos muito, mas essa página não foi encontrada!",
     link: "/catalog",
-    lnk_name: "Home"
+    link_name: "Home"
 }
 
 NotFound.propTypes = {
